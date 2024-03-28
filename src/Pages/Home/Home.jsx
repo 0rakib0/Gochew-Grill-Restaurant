@@ -1,3 +1,4 @@
+import About from "./About"
 import Banner from "./Banner"
 import Category from "./Category"
 
@@ -6,7 +7,7 @@ const Home = () =>{
         <div>
             <Banner></Banner>
             <Category></Category>
-            <h1>This is Home Page</h1>
+            <About></About>
         </div>
     )
 }

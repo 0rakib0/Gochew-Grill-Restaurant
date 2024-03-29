@@ -3,23 +3,35 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import SectionTitle from '../../Components/SectionTitle/SectionTitle';
+import { useEffect, useState } from 'react';
 const Testmonials = () => {
+
+    const [Testmonials, setTestmonials] = useState([])
+
+    useEffect(() => {
+        fetch('reviews.json')
+            .then(res => res.json())
+            .then(data => {
+                setTestmonials(data)
+            })
+    }, [])
+
     return (
         <div>
             <SectionTitle
-            SubHeading={'What Our Clients Say'}
-            heading={'TESTIMONIALS'}
+                SubHeading={'What Our Clients Say'}
+                heading={'TESTIMONIALS'}
             ></SectionTitle>
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                <SwiperSlide>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-                <SwiperSlide>Slide 5</SwiperSlide>
-                <SwiperSlide>Slide 6</SwiperSlide>
-                <SwiperSlide>Slide 7</SwiperSlide>
-                <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide>
+
+                {
+                    Testmonials?.map(testmonial => <SwiperSlide key={testmonial._id}>
+                        <div className='w-3/4 mx-auto text-center'>
+                            <p>{testmonial.details}</p>
+                            <p className='text-xl text-orange-400'>{testmonial.name}</p>
+                        </div>
+                    </SwiperSlide>)
+                }
             </Swiper>
         </div>
     )

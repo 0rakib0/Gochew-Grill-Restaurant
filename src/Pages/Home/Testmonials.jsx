@@ -4,6 +4,9 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 import { useEffect, useState } from 'react';
+import { Rating } from '@smastrom/react-rating'
+
+import '@smastrom/react-rating/style.css'
 const Testmonials = () => {
 
     const [Testmonials, setTestmonials] = useState([])
@@ -27,6 +30,11 @@ const Testmonials = () => {
                 {
                     Testmonials?.map(testmonial => <SwiperSlide key={testmonial._id}>
                         <div className='w-3/4 mx-auto text-center'>
+                            <Rating
+                                style={{ maxWidth: 180 }}
+                                value={testmonial.rating}
+                                readOnly
+                            />
                             <p>{testmonial.details}</p>
                             <p className='text-xl text-orange-400'>{testmonial.name}</p>
                         </div>

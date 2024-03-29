@@ -30,11 +30,13 @@ const Testmonials = () => {
                 {
                     Testmonials?.map(testmonial => <SwiperSlide key={testmonial._id}>
                         <div className='w-3/4 mx-auto text-center'>
-                            <Rating
-                                style={{ maxWidth: 180 }}
-                                value={testmonial.rating}
-                                readOnly
-                            />
+                            <div className='flex justify-center mb-4'>
+                                <Rating
+                                    style={{ maxWidth: 180 }}
+                                    value={testmonial.rating}
+                                    readOnly
+                                />
+                            </div>
                             <p>{testmonial.details}</p>
                             <p className='text-xl text-orange-400'>{testmonial.name}</p>
                         </div>

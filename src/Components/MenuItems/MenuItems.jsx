@@ -2,7 +2,7 @@ const MenuItems = ({ item }) => {
     const { name, recipe, image, price } = item
     return (
         
-            <div className="flex gap-x-2 bg-white m-2 border border-orange-400 lg:border-white hover:border-orange-400 duration-300">
+            <div className="flex gap-x-2 bg-white m-2 border border-orange-400 lg:border-white hover:border-orange-400 duration-300 rounded-lg">
                 <div className="lg:w-[31rem] overflow-hidden mt-2 ml-2 mb-2">
                     <img src={image} className="rounded-lg" alt="image not found" />
                 </div>

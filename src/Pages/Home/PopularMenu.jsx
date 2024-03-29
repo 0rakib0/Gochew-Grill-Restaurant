@@ -23,7 +23,7 @@ const PopularMenu = () =>{
             SubHeading={'Check it out'}
             heading={'FROM OUR MENU'}
             ></SectionTitle>
-            <div>
+            <div className="grid lg:grid-cols-2">
                 {
                     menus?.map(item =><MenuItems key={item._id} item={item}></MenuItems>)
                 }
